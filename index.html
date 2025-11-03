@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevator Control Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Bar -->
+    <header class="header">
+        <h1 class="header-title">ELEVATOR CONTROL SIMULATOR</h1>
+        <div class="header-controls">
+            <button id="startBtn" class="control-btn">START</button>
+            <button id="stopBtn" class="control-btn">STOP</button>
+            <button id="resetBtn" class="control-btn">RESET</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Left Panel - Controls -->
+        <aside class="sidebar">
+            <div class="controls-panel">
+                <h2 class="panel-title">SIMULATION CONTROLS</h2>
+                
+                <!-- Algorithm Selector -->
+                <div class="control-group">
+                    <label for="algorithmSelect" class="control-label">ALGORITHM</label>
+                    <select id="algorithmSelect" class="control-input">
+                        <option value="fifo">FIFO</option>
+                        <option value="scan">SCAN</option>
+                        <option value="direction-based">DIRECTION-BASED</option>
+                    </select>
+                </div>
+
+                <!-- Number of Floors -->
+                <div class="control-group">
+                    <label for="floorCountInput" class="control-label">NUMBER OF FLOORS</label>
+                    <input type="number" id="floorCountInput" class="control-input" min="3" max="20" value="10">
+                </div>
+
+                <!-- Speed -->
+                <div class="control-group">
+                    <label for="speedInput" class="control-label">SPEED (MS PER FLOOR)</label>
+                    <input type="number" id="speedInput" class="control-input" min="100" max="2000" value="500">
+                </div>
+
+                <!-- Current Floor Display -->
+                <div class="control-group">
+                    <label class="control-label">CURRENT FLOOR</label>
+                    <div id="currentFloorDisplay" class="floor-display">1</div>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="control-buttons">
+                    <button id="applyBasicBtn" class="action-btn">APPLY BASIC</button>
+                    <button id="applyAdvancedBtn" class="action-btn">APPLY ADVANCED</button>
+                </div>
+
+                <!-- Active Requests Counter -->
+                <div class="request-counter">
+                    <span class="counter-label">ACTIVE REQUESTS</span>
+                    <span id="requestCount" class="counter-badge">0</span>
+                </div>
+
+                <!-- Request Log -->
+                <div class="request-log-container">
+                    <h3 class="log-title">REQUEST LOG</h3>
+                    <div id="requestLog" class="request-log"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Right Panel - Simulation -->
+        <section class="simulation-panel">
+            <!-- Status Indicator -->
+            <div class="status-indicator">
+                <span class="status-dot" id="statusDot"></span>
+                <span class="status-text" id="statusText">STOPPED</span>
+            </div>
+
+            <!-- Elevator Shaft -->
+            <div class="elevator-shaft-container">
+                <div class="elevator-shaft" id="elevatorShaft">
+                    <!-- Floors will be generated dynamically -->
+                </div>
+                <div class="elevator-car" id="elevatorCar">
+                    <div class="car-floor-display" id="carFloorDisplay">1</div>
+                    <div class="car-direction" id="carDirection">IDLE</div>
+                </div>
+            </div>
+
+            <!-- Floor Request Buttons -->
+            <div class="floor-buttons-container">
+                <div id="floorButtons" class="floor-buttons">
+                    <!-- Floor buttons will be generated dynamically -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
